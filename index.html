@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>탭 - jQuery 원본</title>
+  <style>
+    /* ① 노션에 CSS가 있으면 여기에 붙여 넣기 */
+    .tab_con { display: none; }
+    .tab_con.on { display: block; }
+    .tab li.on { font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <!-- ② 노션의 탭 HTML을 여기에 붙여 넣기 -->
+  <ul class="tab">
+    <li class="on">탭 1</li>
+    <li>탭 2</li>
+    <li>탭 3</li>
+  </ul>
+  <div class="tab_con on">내용 1</div>
+  <div class="tab_con">내용 2</div>
+  <div class="tab_con">내용 3</div>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+    // ③ 노션의 jQuery 코드를 여기에 붙여 넣기
+    $('.tab li').on('click', function () {
+      var idx = $(this).index();
+      $(this).addClass('on').siblings().removeClass('on');
+      $('.tab_con').removeClass('on').eq(idx).addClass('on');
+    });
+  </script>
+
+</body>
+</html>
